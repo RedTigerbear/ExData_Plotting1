@@ -1,3 +1,6 @@
+## Set locale to English
+Sys.setlocale("LC_TIME", "English")
+
 ## Get all data
 FilePath <- "./data/household_power_consumption.txt"
 household_power_consumption <- read.table(FilePath, header=TRUE, sep=";", stringsAsFactors=FALSE, dec=".", na.strings = "?")
@@ -8,8 +11,7 @@ data <- subset(household_power_consumption, subset=(Date >= "2007-02-01" & Date 
 rm(household_power_consumption)
 
 ## Plot 1
-hist(data$Global_active_power, main="Global Active Power", 
-     xlab="Global Active Power (kilowatts)", ylab="Frequency", col="Red")
+hist(data$Global_active_power, main="Global Active Power", xlab="Global Active Power (kilowatts)", ylab="Frequency", col="Red")
 
 ## Save to PNG
 dev.copy(png, file="plot1.png", height=480, width=480)
